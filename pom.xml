@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.3.6</version>
+    <relativePath/>
+  </parent>
+
+  <groupId>com.jobbeacon</groupId>
+  <artifactId>jobbeacon-sync</artifactId>
+  <version>1.0.0</version>
+  <name>jobbeacon-sync</name>
+  <description>Syncs job search documents from Postgres to Elasticsearch</description>
+
+  <properties>
+    <java.version>21</java.version>
+    <debezium.version>3.2.7.Final</debezium.version>
+    <elasticsearch.version>8.15.3</elasticsearch.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jdbc</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.7.7</version>
+    </dependency>
+    <dependency>
+      <groupId>io.debezium</groupId>
+      <artifactId>debezium-api</artifactId>
+      <version>${debezium.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.debezium</groupId>
+      <artifactId>debezium-embedded</artifactId>
+      <version>${debezium.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.debezium</groupId>
+      <artifactId>debezium-connector-postgres</artifactId>
+      <version>${debezium.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.debezium</groupId>
+      <artifactId>debezium-storage-jdbc</artifactId>
+      <version>${debezium.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>co.elastic.clients</groupId>
+      <artifactId>elasticsearch-java</artifactId>
+      <version>${elasticsearch.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.elasticsearch.client</groupId>
+      <artifactId>elasticsearch-rest-client</artifactId>
+      <version>${elasticsearch.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>jobbeacon-sync</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+</project>
