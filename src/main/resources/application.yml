@@ -20,3 +20,13 @@ sync:
   elasticsearch:
     url: ${ELASTICSEARCH_URL:http://localhost:9200}
     index: ${ELASTICSEARCH_JOB_INDEX:jobs}
+
+eureka:
+  client:
+    # Turn off (EUREKA_ENABLED=false) to run the service without the discovery server.
+    enabled: ${EUREKA_ENABLED:true}
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka/}
+  instance:
+    # Register the container/host IP rather than the hostname, so other services can reach it inside Docker.
+    prefer-ip-address: true
