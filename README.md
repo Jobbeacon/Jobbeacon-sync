@@ -23,7 +23,7 @@ ELASTICSEARCH_URL=http://localhost:9200 \
 mvn spring-boot:run
 ```
 
-Health: `http://localhost:8081/health`.
+Health: `http://localhost:8081/jobbeacon-sync/health` (context path `/jobbeacon-sync`).
 
 Service đăng ký vào discovery server (`EUREKA_URL`, mặc định `http://localhost:8761/eureka/`) với tên `jobbeacon-sync`. Nó không gọi HTTP sang service khác; đặt `EUREKA_ENABLED=false` để chạy không cần discovery.
 

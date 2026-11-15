@@ -1,5 +1,9 @@
 server:
   port: ${PORT:8081}
+  # Every endpoint lives under the service name, so paths never collide across services and the gateway
+  # routes by prefix without rewriting.
+  servlet:
+    context-path: /jobbeacon-sync
 
 spring:
   application:
